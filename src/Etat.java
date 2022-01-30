@@ -22,6 +22,7 @@ public class Etat {
 		listParcours = p.getParcours();
 		System.out.println(listParcours);
 		System.out.println(listParcours.get(0));
+		System.out.println(listParcours.get(1));
 		
 	}
 	
@@ -37,7 +38,7 @@ public class Etat {
 	public static void moveDown() {
 		if (hauteur + Affichage.heightOval < Affichage.HAUT) {
 			hauteur = hauteur + vDown;
-		}
+		}	//test
 		affichage.repaint(Affichage.xCenterOval, 0, 2 * Affichage.widthOval, Affichage.HAUT);
 	}
 	
