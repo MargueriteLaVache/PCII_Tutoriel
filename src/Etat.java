@@ -97,7 +97,7 @@ public class Etat {
  */
 class Voler extends Thread {
 
-	public static final int sleepTime = 10;
+	public static final int msY = 10;
 	Etat etat;
 
 	/** Constructeur de la classe */
@@ -114,7 +114,7 @@ class Voler extends Thread {
 			/* Descente de l'oval/oiseau */
 			etat.moveDown();
 			/* Mise en pause du thread */
-			try { sleep(sleepTime); }
+			try { sleep(msY); }
 			catch (Exception e) { e.printStackTrace(); }
 		}
 	}
