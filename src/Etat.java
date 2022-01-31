@@ -8,7 +8,7 @@ public class Etat {
 	/**Constante vJump, valeur du jump*/
 	public static int vJump = 50;
 	/**Constante vDown, valeur de la descente*/
-	public static int vDown = 1;
+	public static int vDown = 10;
 	///**Constante vDown, valeur de la descente*/
 	public static ArrayList<Point> listParcours;
 	
@@ -20,9 +20,8 @@ public class Etat {
 		parcours = p;
 		hauteur = affichage.yCenterOval;
 		listParcours = p.getParcours();
-		System.out.println(listParcours);
-		System.out.println(listParcours.get(0));
-		System.out.println(listParcours.get(1));
+		//System.out.println(listParcours);
+		//System.out.println(listParcours.get(0));
 		
 	}
 	
@@ -32,13 +31,13 @@ public class Etat {
 	}
 	
 	public static void jump() {
-		hauteur = hauteur - vJump;		
+		hauteur -= vJump;
 	}
 
 	public static void moveDown() {
 		if (hauteur + Affichage.heightOval < Affichage.HAUT) {
-			hauteur = hauteur + vDown;
-		}	//test
+			hauteur += vDown;
+		}
 		affichage.repaint(Affichage.xCenterOval, 0, 2 * Affichage.widthOval, Affichage.HAUT);
 	}
 	
