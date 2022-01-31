@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 import java.awt.Point;
 import java.util.ArrayList;
 
-@SuppressWarnings("serial")
+
 public class Affichage extends JPanel {
 
     /* Constantes */
@@ -16,16 +16,18 @@ public class Affichage extends JPanel {
     public static final int heightOval = 150;
     public static  ArrayList<Point> listPoint;
     public static int lpLen;
+    private static Etat etat;
 
     /** Constructeur */
-    public Affichage() {
+    public Affichage(Etat e) {
+    		etat = e;
             setPreferredSize(new Dimension(LARG, HAUT));
     }
 
     @Override
     public void paint(Graphics g) {
     	super.paint(g);
-    	g.drawOval(xCenterOval, Etat.getHauteur(), widthOval, heightOval);
+    	g.drawOval(xCenterOval, etat.getHauteur(), widthOval, heightOval);
     	
     	/** ça marche plus ou moins, les points devraient être bons, mais c'est turbo moche le code */
     	listPoint = Etat.listParcours;

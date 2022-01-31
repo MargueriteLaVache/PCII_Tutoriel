@@ -7,7 +7,9 @@ public class Control implements MouseListener  {
 	Affichage affichage;
 
     public Control(Affichage a) {
-    	this.affichage = a;     
+    	affichage = a;
+
+        affichage.addMouseListener(this);
     }
 
     public void mouseClicked(MouseEvent e) {
