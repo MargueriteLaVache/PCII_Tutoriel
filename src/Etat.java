@@ -4,19 +4,17 @@ import java.util.ArrayList;
 public class Etat {
 	/**Constantes*/
 	/**Constante hauteur, y du centre de l'ovale*/
-	public static int hauteur = 50;
+	public static int hauteur = 200;
 	/**Constante vJump, valeur du jump*/
 	public static int vJump = 50;
 	/**Constante vDown, valeur de la descente*/
-	public static int vDown = 2;
+	public static int vDown = 1;
 	///**Constante vDown, valeur de la descente*/
-	public static ArrayList<Point> listParcours;
 
 	Parcours parcours;
 	
 	public Etat(Parcours p) {
 		parcours = p;
-		listParcours = p.getParcours();
 		//System.out.println(listParcours);
 		//System.out.println(listParcours.get(0));
 		
@@ -28,14 +26,19 @@ public class Etat {
 	}
 	
 	public static void jump() {
-		hauteur -= vJump;
+		if (hauteur - vJump < 0) {
+			hauteur = 0;
+		}
+		else
+			hauteur -= vJump;
 	}
 
 	public static void moveDown() {
 		if (hauteur + Affichage.heightOval < Affichage.HAUT) {
 			hauteur += vDown;
 		}
-		Main.affichage.repaint(Affichage.xCenterOval, 0, 2 * Affichage.widthOval, Affichage.HAUT);
+		Main.affichage.revalidate();
+		Main.affichage.repaint();
 	}
 	
 
@@ -46,7 +49,7 @@ public class Etat {
 
 class Voler extends Thread {
 
-	public static final int sleepTime = 20;
+	public static final int sleepTime = 10;
 	Etat etat;
 
 	public Voler(Etat e) {
